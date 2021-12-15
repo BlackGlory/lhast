@@ -4,11 +4,15 @@
   , "module": "ES2020"
   , "moduleResolution": "node"
   , "strict": true
-  , "lib": ["ES2019.Array", "DOM"]
+  , "lib": ["ES2019.Array"]
   , "esModuleInterop": true
   , "noUnusedLocals": false
   , "noUnusedParameters": false
   , "skipLibCheck": true
+  , "plugins": [
+      { "transform": "typescript-transform-paths" }
+    , { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
   , "baseUrl": "."
   , "paths": {
       "@src/*": ["src/*"]
