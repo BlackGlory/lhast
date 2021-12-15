@@ -82,7 +82,6 @@
   },
   "dependencies": {
     "@blackglory/types": "^0.6.0",
-    "extra-lazy": "^0.1.0",
     "hast-util-from-parse5": "^7.1.0",
     "hotypes": "^0.4.3",
     "lodash.clonedeep": "^4.5.0",
