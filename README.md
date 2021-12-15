@@ -1,9 +1,9 @@
 # lhast
 **L**ightweight **H**ypertext **A**bstract **S**yntax **T**ree.
 
-A lightweight version of [HAST v2.4] with a more compact format for serialization.
+A lightweight version of [hast v2.4] with a more compact format for serialization.
 
-[HAST v2.4]: https://github.com/syntax-tree/hast/tree/2.4.0
+[hast v2.4]: https://github.com/syntax-tree/hast/tree/2.4.0
 
 ## Intall
 ```sh
