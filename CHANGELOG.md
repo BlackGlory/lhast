@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/BlackGlory/lhast/compare/v0.1.0...v0.1.1) (2021-12-15)
+
+
+### Bug Fixes
+
+* **build:** paths ([d2be79b](https://github.com/BlackGlory/lhast/commit/d2be79b597c5d140def68abb27f9f1859910673c))
+
 ## 0.1.0 (2021-12-15)
 
 

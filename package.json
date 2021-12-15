@@ -1,6 +1,6 @@
 {
   "name": "lhast",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lightweight Hypertext Abstract Syntax Tree",
   "keywords": [],
   "files": [
