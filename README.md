@@ -70,8 +70,7 @@ type ElementWithProperties = [
 , ...children: ElementContent[]
 ]
 
-type ElementWithoutProperties =
-[
+type ElementWithoutProperties = [
   tagName: string
 , ...children: ElementContent[]
 ]

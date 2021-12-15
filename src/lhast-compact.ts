@@ -13,8 +13,7 @@ export type ElementWithProperties = [
 , ...children: ElementContent[]
 ]
 
-export type ElementWithoutProperties =
-[
+export type ElementWithoutProperties = [
   tagName: string
 , ...children: ElementContent[]
 ]
