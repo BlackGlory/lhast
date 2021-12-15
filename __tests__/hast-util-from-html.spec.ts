@@ -189,6 +189,24 @@ test('Pre', () => {
   })
 })
 
+test('HTML entities', () => {
+  const html = dedent`
+  &amp;
+  `
+
+  const result = parseFragment(html)
+
+  expect(result).toMatchObject({
+    type: 'root'
+  , children: [
+      {
+        type: 'text'
+      , value: '&'
+      }
+    ]
+  })
+})
+
 function parseDocument(html: string) {
   const ast = parse5.parse(html)
   return fromParse5(ast)

@@ -80,3 +80,15 @@ test('Pre', () => {
     ])
   ]))
 })
+
+test('HTML entities', () => {
+  const html = dedent`
+  &amp;
+  `
+
+  const result = parseFragment(html)
+
+  expect(result).toStrictEqual(L.root([
+    L.text('&')
+  ]))
+})
