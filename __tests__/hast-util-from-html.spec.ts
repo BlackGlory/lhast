@@ -101,7 +101,7 @@ test('HTML', () => {
   })
 })
 
-test('Template', () => {
+test('template', () => {
   const html = dedent`
   <template>
     <p>Hello, world!</p>
@@ -147,7 +147,7 @@ test('Template', () => {
   })
 })
 
-test('Pre', () => {
+test('pre', () => {
   const html = dedent`
   <pre>
     <p>Hello, world!</p>
