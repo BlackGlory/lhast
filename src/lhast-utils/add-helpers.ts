@@ -5,12 +5,12 @@ import cloneDeep from 'lodash.clonedeep'
 import { isntUndefined } from '@blackglory/types'
 import { nanoid } from 'nanoid'
 
-type NullOrWrappedNode<T extends AST.Node | null> =
+type NullOrNodeWithHelpers<T extends AST.Node | null> =
   T extends null
   ? null
-  : WrappedNode<NonNullable<T>>
+  : NodeWithHelpers<NonNullable<T>>
 
-export type WrappedNode<
+export type NodeWithHelpers<
   Node extends AST.Node
 , Sibling extends AST.Node | null = AST.Node | null
 , Parent extends AST.Node | null = AST.Node | null
@@ -22,17 +22,17 @@ export type WrappedNode<
       index: null
       previousSibling: null
       nextSibling: null
-      children: Array<WrappedNode<AST.RootContent, AST.RootContent, AST.Root>>
+      children: Array<NodeWithHelpers<AST.RootContent, AST.RootContent, AST.Root>>
     }>
 : Node extends AST.Element
   ? Mixin<Node, {
       id: string
-      parent: NullOrWrappedNode<Parent>
+      parent: NullOrNodeWithHelpers<Parent>
       index: number
-      previousSibling: NullOrWrappedNode<Sibling>
-      nextSibling: NullOrWrappedNode<Sibling>
+      previousSibling: NullOrNodeWithHelpers<Sibling>
+      nextSibling: NullOrNodeWithHelpers<Sibling>
       children: Array<
-        WrappedNode<
+        NodeWithHelpers<
           AST.ElementContent
         , AST.ElementContent
         , AST.Element
@@ -41,19 +41,19 @@ export type WrappedNode<
     }>
 : Mixin<Node, {
     id: string
-    parent: NullOrWrappedNode<Parent>
+    parent: NullOrNodeWithHelpers<Parent>
     index: number | null
-    previousSibling: NullOrWrappedNode<Sibling>
-    nextSibling: NullOrWrappedNode<Sibling>
+    previousSibling: NullOrNodeWithHelpers<Sibling>
+    nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
-export function wrap<T extends AST.Node>(node: T): WrappedNode<T> {
+export function addHelpers<T extends AST.Node>(node: T): NodeWithHelpers<T> {
   const clone = cloneDeep(node)
-  wrapNode(clone)
-  return clone as WrappedNode<T>
+  addHelpersToTree(clone)
+  return clone as NodeWithHelpers<T>
 }
 
-function wrapNode<
+function addHelpersToTree<
   Node extends AST.Node
 , Parent extends AST.Node & AST.Parent
 >(
@@ -69,7 +69,7 @@ function wrapNode<
   wrappedNode.id = nanoid()
 
   if (isntUndefined(parent)) {
-    wrappedNode.parent = parent as unknown as WrappedNode<Parent>
+    wrappedNode.parent = parent as unknown as NodeWithHelpers<Parent>
 
     if (isntUndefined(index)) {
       const previousSibling = parent.children[index - 1]
@@ -82,10 +82,10 @@ function wrapNode<
   }
 
   if (isParent(wrappedNode)) {
-    wrapChildren(wrappedNode)
+    addHelpersToChildren(wrappedNode)
   }
 }
 
-function wrapChildren(parent: AST.Node & AST.Parent): void { 
-  parent.children.forEach((node, i) => wrapNode(node, parent, i))
+function addHelpersToChildren(parent: AST.Node & AST.Parent): void { 
+  parent.children.forEach((node, i) => addHelpersToTree(node, parent, i))
 }

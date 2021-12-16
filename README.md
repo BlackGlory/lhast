@@ -180,16 +180,16 @@ import { traverseDescendantNodes } from 'lhast/utils/traverse-descendant-nodes.j
 function traverseDescendantNodes(node: AST.Node): Iterable<AST.Node>
 ```
 
-#### wrap
+#### addHelpers
 ```ts
-import { wrap, WrappedNode } from 'lhast/utils/wrap.js'
+import { addHelpers, NodeWithHelpers } from 'lhast/utils/add-helpers.js'
 
-type NullOrWrappedNode<T extends AST.Node | null> =
+type NullOrNodeWithHelpers<T extends AST.Node | null> =
   T extends null
   ? null
-  : WrappedNode<NonNullable<T>>
+  : NodeWithHelpers<NonNullable<T>>
 
-type WrappedNode<
+type NodeWithHelpers<
   Node extends AST.Node
 , Sibling extends AST.Node | null = AST.Node | null
 , Parent extends AST.Node | null = AST.Node | null
@@ -201,17 +201,17 @@ type WrappedNode<
       index: null
       previousSibling: null
       nextSibling: null
-      children: Array<WrappedNode<AST.RootContent, AST.RootContent, AST.Root>>
+      children: Array<NodeWithHelpers<AST.RootContent, AST.RootContent, AST.Root>>
     }>
 : Node extends AST.Element
   ? Mixin<Node, {
       id: string
-      parent: NullOrWrappedNode<Parent>
+      parent: NullOrNodeWithHelpers<Parent>
       index: number
-      previousSibling: NullOrWrappedNode<Sibling>
-      nextSibling: NullOrWrappedNode<Sibling>
+      previousSibling: NullOrNodeWithHelpers<Sibling>
+      nextSibling: NullOrNodeWithHelpers<Sibling>
       children: Array<
-        WrappedNode<
+        NodeWithHelpers<
           AST.ElementContent
         , AST.ElementContent
         , AST.Element
@@ -220,18 +220,18 @@ type WrappedNode<
     }>
 : Mixin<Node, {
     id: string
-    parent: NullOrWrappedNode<Parent>
+    parent: NullOrNodeWithHelpers<Parent>
     index: number | null
-    previousSibling: NullOrWrappedNode<Sibling>
-    nextSibling: NullOrWrappedNode<Sibling>
+    previousSibling: NullOrNodeWithHelpers<Sibling>
+    nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
-function wrap<T extends AST.Node>(node: T): WrappedNode<T>
+function addHelpers<T extends AST.Node>(node: T): NodeWithHelpers<T>
 ```
 
-#### unwrap
+#### removeHelpers
 ```ts
-import { unwrap } from 'lhast/utils/unwrap.js'
+import { removeHelpers } from 'lhast/utils/remove-helpers.js'
 
-function unwrap<T extends AST.Node>(node: WrappedNode<T>): T
+function removeHelpers<T extends AST.Node>(node: NodeWithHelpers<T>): T
 ```

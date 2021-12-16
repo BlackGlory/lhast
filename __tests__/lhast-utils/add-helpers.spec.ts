@@ -1,7 +1,7 @@
-import { wrap } from '@lhast-utils/wrap.js'
+import { addHelpers } from '@lhast-utils/add-helpers.js'
 import * as L from '@lhast-utils/builder.js'
 
-test('wrap', () => {
+test('addHelpers', () => {
   const ast = L.root([
     L.element('p', {}, [
       L.text('first')
@@ -14,7 +14,7 @@ test('wrap', () => {
     ])
   ])
 
-  const result = wrap(ast)
+  const result = addHelpers(ast)
 
   expect(result).toMatchObject({
     type: 'root'

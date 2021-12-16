@@ -1,9 +1,9 @@
-import { wrap } from '@lhast-utils/wrap.js'
-import { unwrap } from '@lhast-utils/unwrap.js'
+import { addHelpers } from '@lhast-utils/add-helpers.js'
+import { removeHelpers } from '@lhast-utils/remove-helpers.js'
 import * as L from '@lhast-utils/builder.js'
 
-test('unwrap', () => {
-  const ast = wrap(
+test('removeHelpers', () => {
+  const ast = addHelpers(
     L.root([
       L.element('p', {}, [
         L.text('first')
@@ -17,7 +17,7 @@ test('unwrap', () => {
     ])
   )
 
-  const result = unwrap(ast)
+  const result = removeHelpers(ast)
 
   expect(result).toStrictEqual(
     L.root([
