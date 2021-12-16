@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/BlackGlory/lhast/compare/v0.1.1...v0.2.0) (2021-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* - `wrap` => `addHelpers`
+- `unwrap` => `removeHelpers`
+
+* rename wrap to addHelpers, unwrap to removeHelpers ([7e2c9fe](https://github.com/BlackGlory/lhast/commit/7e2c9fea185ebb96e8a45f63ec308cec21b2201c))
+
 ### [0.1.1](https://github.com/BlackGlory/lhast/compare/v0.1.0...v0.1.1) (2021-12-15)
 
 
