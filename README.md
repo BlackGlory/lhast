@@ -108,6 +108,36 @@ function compact(root: AST.Root): AST_COMPACT.Root
 function uncompact(root: AST_COMPACT.Root): AST.Root
 ```
 
+### validateAST
+```ts
+function validateAST(data: unknown): void
+```
+
+### validateASTCompact
+```ts
+function validateASTCompact(data: unknown): void
+```
+
+### isAST
+```ts
+function isAST(data: unknown): data is AST.Root
+```
+
+### isASTCompact
+```ts
+function isASTCompact(data: unknown): data is AST_COMPACT.Root
+```
+
+### astSchema
+```
+const astSchema: SchemaObject
+```
+
+### astCompactSchema
+```
+const astCompactSchema: SchemaObject
+```
+
 ### utils
 #### builder
 ```ts
