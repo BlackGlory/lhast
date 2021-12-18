@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/BlackGlory/lhast/compare/v0.2.1...v0.3.0) (2021-12-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* - Rename `AST` to `LHAST`
+- Rename `AST_COMPACT` to `LHASTCompact`
+- Rename `validateAST` to `validateLHAST`
+- Rename `validateASTCompact` to `validateLHASTCompact`
+- Rename `isAST` to `isLHAST`
+- Rename `isASTCompact` to `isLHASTCompact`
+- Rename `astSchema` to `LHASTSchema`
+- Rename `astCompactSchema` to `LHASTCompactSchema`
+
+* rename ([0a501ee](https://github.com/BlackGlory/lhast/commit/0a501ee1834df628fea1638451393d6b39b7d707))
+
 ### [0.2.1](https://github.com/BlackGlory/lhast/compare/v0.2.0...v0.2.1) (2021-12-17)
 
 
