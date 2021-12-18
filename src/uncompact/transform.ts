@@ -1,29 +1,29 @@
 import * as LHAST from '@src/lhast.js'
-import * as LHAST_COMPACT from '@src/lhast-compact.js'
+import * as LHASTCompact from '@src/lhast-compact.js'
 import { CustomError } from '@blackglory/errors'
 import { isntUndefined } from '@blackglory/types'
 import { isArray as isElement, isString as isText, isPlainObject } from '@blackglory/types'
 
 export class UnknownNodeError extends CustomError {
-  constructor(node: LHAST_COMPACT.Node) {
+  constructor(node: LHASTCompact.Node) {
     super(JSON.stringify(node, null, 2))
   }
 }
 
-export function transformRoot(node: LHAST_COMPACT.Root): LHAST.Root {
+export function transformRoot(node: LHASTCompact.Root): LHAST.Root {
   return {
     type: 'root'
   , children: map(node, transformRootContent)
   }
 }
 
-export function transformRootContent(node: LHAST_COMPACT.RootContent): LHAST.RootContent {
+export function transformRootContent(node: LHASTCompact.RootContent): LHAST.RootContent {
   if (isElement(node)) return transformElement(node)
   if (isText(node)) return transformText(node)
   throw new UnknownNodeError(node)
 }
 
-export function transformElement(node: LHAST_COMPACT.Element): LHAST.Element {
+export function transformElement(node: LHASTCompact.Element): LHAST.Element {
   if (isPlainObject(node[1])) {
     const [tagName, properties, ...children] = node
 
@@ -41,20 +41,20 @@ export function transformElement(node: LHAST_COMPACT.Element): LHAST.Element {
     , tagName
     , properties: {}
     , children: map(
-        children as LHAST_COMPACT.ElementContent[]
+        children as LHASTCompact.ElementContent[]
       , transformElementContent
       )
     }
   }
 }
 
-export function transformElementContent(node: LHAST_COMPACT.ElementContent): LHAST.ElementContent {
+export function transformElementContent(node: LHASTCompact.ElementContent): LHAST.ElementContent {
   if (isElement(node)) return transformElement(node)
   if (isText(node)) return transformText(node)
   throw new UnknownNodeError(node)
 }
 
-export function transformText(node: LHAST_COMPACT.Text): LHAST.Text {
+export function transformText(node: LHASTCompact.Text): LHAST.Text {
   return {
     type: 'text'
   , value: node

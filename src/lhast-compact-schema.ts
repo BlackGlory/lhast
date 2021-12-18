@@ -1,6 +1,4 @@
-import { SchemaObject } from 'ajv'
-
-export const astCompactSchema: SchemaObject = {
+export const LHASTCompactSchema = {
   $schema: 'https://json-schema.org/draft/2020-12/schema'
 , $id: 'lhast-compact'
 , type: 'array'

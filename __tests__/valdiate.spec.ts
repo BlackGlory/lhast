@@ -1,5 +1,5 @@
 import * as L from '@lhast-utils/builder.js'
-import { validateAST, validateASTCompact } from '@src/validate.js'
+import { validateLHAST, validateLHASTCompact } from '@src/validate.js'
 import { compact } from '@src/compact/index.js'
 
 test('validateAST', () => {
@@ -19,7 +19,7 @@ test('validateAST', () => {
     ])
   ])
 
-  validateAST(ast)
+  validateLHAST(ast)
 })
 
 test('validateASTCompact', () => {
@@ -41,5 +41,5 @@ test('validateASTCompact', () => {
     ])
   )
 
-  validateASTCompact(ast)
+  validateLHASTCompact(ast)
 })

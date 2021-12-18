@@ -1,30 +1,30 @@
-import * as AST from '@src/lhast.js'
+import * as LHAST from '@src/lhast.js'
 import { Mixin } from 'hotypes'
 import { isParent } from './is.js'
 import cloneDeep from 'lodash.clonedeep'
 import { isntUndefined } from '@blackglory/types'
 import { nanoid } from 'nanoid'
 
-type NullOrNodeWithHelpers<T extends AST.Node | null> =
+type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null
   ? null
   : NodeWithHelpers<NonNullable<T>>
 
 export type NodeWithHelpers<
-  Node extends AST.Node
-, Sibling extends AST.Node | null = AST.Node | null
-, Parent extends AST.Node | null = AST.Node | null
+  Node extends LHAST.Node
+, Sibling extends LHAST.Node | null = LHAST.Node | null
+, Parent extends LHAST.Node | null = LHAST.Node | null
 > =
-  Node extends AST.Root
+  Node extends LHAST.Root
   ? Mixin<Node, {
       id: string
       parent: null
       index: null
       previousSibling: null
       nextSibling: null
-      children: Array<NodeWithHelpers<AST.RootContent, AST.RootContent, AST.Root>>
+      children: Array<NodeWithHelpers<LHAST.RootContent, LHAST.RootContent, LHAST.Root>>
     }>
-: Node extends AST.Element
+: Node extends LHAST.Element
   ? Mixin<Node, {
       id: string
       parent: NullOrNodeWithHelpers<Parent>
@@ -33,9 +33,9 @@ export type NodeWithHelpers<
       nextSibling: NullOrNodeWithHelpers<Sibling>
       children: Array<
         NodeWithHelpers<
-          AST.ElementContent
-        , AST.ElementContent
-        , AST.Element
+          LHAST.ElementContent
+        , LHAST.ElementContent
+        , LHAST.Element
         >
       >
     }>
@@ -47,15 +47,15 @@ export type NodeWithHelpers<
     nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
-export function addHelpers<T extends AST.Node>(node: T): NodeWithHelpers<T> {
+export function addHelpers<T extends LHAST.Node>(node: T): NodeWithHelpers<T> {
   const clone = cloneDeep(node)
   addHelpersToTree(clone)
   return clone as NodeWithHelpers<T>
 }
 
 function addHelpersToTree<
-  Node extends AST.Node
-, Parent extends AST.Node & AST.Parent
+  Node extends LHAST.Node
+, Parent extends LHAST.Node & LHAST.Parent
 >(
   node: Node
 , parent?: Parent
@@ -86,6 +86,6 @@ function addHelpersToTree<
   }
 }
 
-function addHelpersToChildren(parent: AST.Node & AST.Parent): void { 
+function addHelpersToChildren(parent: LHAST.Node & LHAST.Parent): void { 
   parent.children.forEach((node, i) => addHelpersToTree(node, parent, i))
 }

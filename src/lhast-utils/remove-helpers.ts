@@ -1,15 +1,15 @@
-import * as AST from '@src/lhast.js'
+import * as LHAST from '@src/lhast.js'
 import { NodeWithHelpers } from './add-helpers.js'
 import { isParent } from './is.js'
 import cloneDeep from 'lodash.clonedeep'
 
-export function removeHelpers<T extends AST.Node>(node: NodeWithHelpers<T>): T {
+export function removeHelpers<T extends LHAST.Node>(node: NodeWithHelpers<T>): T {
   const clone = cloneDeep(node)
   removeHelpersForTree(clone)
   return clone as T
 }
 
-function removeHelpersForTree<T extends AST.Node>(node: NodeWithHelpers<T>): void {
+function removeHelpersForTree<T extends LHAST.Node>(node: NodeWithHelpers<T>): void {
   delete (node as Partial<NodeWithHelpers<T>>).parent
   delete (node as Partial<NodeWithHelpers<T>>).previousSibling
   delete (node as Partial<NodeWithHelpers<T>>).nextSibling
@@ -21,8 +21,8 @@ function removeHelpersForTree<T extends AST.Node>(node: NodeWithHelpers<T>): voi
   }
 }
 
-function removeHelpersForChildren(parent: NodeWithHelpers<AST.Node & AST.Parent>): void {
+function removeHelpersForChildren(parent: NodeWithHelpers<LHAST.Node & LHAST.Parent>): void {
   parent.children.forEach(node => {
-    removeHelpersForTree(node as NodeWithHelpers<AST.Node>)
+    removeHelpersForTree(node as NodeWithHelpers<LHAST.Node>)
   })
 }

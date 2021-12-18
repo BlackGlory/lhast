@@ -13,7 +13,7 @@ yarn add lhast
 ```
 
 ## API
-### AST
+### LHAST
 ```ts
 interface Node {
   type: string
@@ -53,7 +53,7 @@ type ElementContent =
 type Properties = Record<string, boolean | number | string | string[]>
 ```
 
-### AST_COMPACT
+### LHASTCompact
 ```ts
 type Node =
 | Root
@@ -90,52 +90,52 @@ type Properties = Record<string, boolean | number | string | string[]>
 
 ### parseDocument
 ```ts
-function parseDocument(html: string): AST.Root
+function parseDocument(html: string): LHAST.Root
 ```
 
 ### parseFragment
 ```ts
-function parseFragment(html: string): AST.Root
+function parseFragment(html: string): LHAST.Root
 ```
 
 ### compact
 ```ts
-function compact(root: AST.Root): AST_COMPACT.Root
+function compact(root: LHAST.Root): LHASTCompact.Root
 ```
 
 ### uncompact
 ```ts
-function uncompact(root: AST_COMPACT.Root): AST.Root
+function uncompact(root: LHAST.COMPACT.Root): LHAST.Root
 ```
 
-### validateAST
+### validateLHAST
 ```ts
-function validateAST(data: unknown): void
+function validateLHAST(data: unknown): void
 ```
 
-### validateASTCompact
+### validateLHASTCompact
 ```ts
-function validateASTCompact(data: unknown): void
+function validateLHASTCompact(data: unknown): void
 ```
 
 ### isAST
 ```ts
-function isAST(data: unknown): data is AST.Root
+function isLHAST(data: unknown): data is LHAST.Root
 ```
 
-### isASTCompact
+### isLHASTCompact
 ```ts
-function isASTCompact(data: unknown): data is AST_COMPACT.Root
+function isLHASTCompact(data: unknown): data is LHASTCompact.Root
 ```
 
-### astSchema
+### LHASTSchema
 ```
-const astSchema: SchemaObject
+const LHASTSchema
 ```
 
-### astCompactSchema
+### LHASTCompactSchema
 ```
-const astCompactSchema: SchemaObject
+const LHASTCompactSchema
 ```
 
 ### utils
@@ -158,9 +158,9 @@ Each lhast node has a corresponding `is` function.
 import { flatMap } from 'lhast/utils/flatMap.js'
 
 function flatMap(
-  node: AST.Node
-, fn: (node: AST.Node) => AST.Node[]
-): AST.Node[]
+  node: LHAST.Node
+, fn: (node: LHAST.Node) => AST.Node[]
+): LHAST.Node[]
 ```
 
 #### map
@@ -168,9 +168,9 @@ function flatMap(
 import { map } from 'lhast/utils/map.js'
 
 function map(
-  node: AST.Node
-, fn: (node: AST.Node) => AST.Node
-): AST.Node
+  node: LHAST.Node
+, fn: (node: LHAST.Node) => AST.Node
+): LHAST.Node
 ```
 
 #### filter
@@ -178,18 +178,18 @@ function map(
 import { filter } from 'lhast/utils/filter.js'
 
 function filter(
-  node: AST.Node
-, predicate: (node: AST.Node) => unknown
-): AST.Node | undefined
+  node: LHAST.Node
+, predicate: (node: LHAST.Node) => unknown
+): LHAST.Node | undefined
 ```
 
 #### find
 ```ts
 import { find } from 'lhast/utils/find.js'
 
-function find<T extends AST.Node>(
-  node: AST.Node
-, predicate: (node: AST.Node) => boolean
+function find<T extends LHAST.Node>(
+  node: LHAST.Node
+, predicate: (node: LHAST.Node) => boolean
 ): T | undefined
 ```
 
@@ -197,9 +197,9 @@ function find<T extends AST.Node>(
 ```ts
 import { findAll } from 'lhast/utils/find-all.js'
 
-function* findAll<T extends AST.Node>(
-  node: AST.Node
-, predicate: (node: AST.Node) => boolean
+function* findAll<T extends LHAST.Node>(
+  node: LHAST.Node
+, predicate: (node: LHAST.Node) => boolean
 ): Iterable<T>
 ```
 
@@ -207,33 +207,33 @@ function* findAll<T extends AST.Node>(
 ```ts
 import { traverseDescendantNodes } from 'lhast/utils/traverse-descendant-nodes.js'
 
-function traverseDescendantNodes(node: AST.Node): Iterable<AST.Node>
+function traverseDescendantNodes(node: LHAST.Node): Iterable<AST.Node>
 ```
 
 #### addHelpers
 ```ts
 import { addHelpers, NodeWithHelpers } from 'lhast/utils/add-helpers.js'
 
-type NullOrNodeWithHelpers<T extends AST.Node | null> =
+type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null
   ? null
   : NodeWithHelpers<NonNullable<T>>
 
 type NodeWithHelpers<
-  Node extends AST.Node
-, Sibling extends AST.Node | null = AST.Node | null
-, Parent extends AST.Node | null = AST.Node | null
+  Node extends LHAST.Node
+, Sibling extends LHAST.Node | null = AST.Node | null
+, Parent extends LHAST.Node | null = AST.Node | null
 > =
-  Node extends AST.Root
+  Node extends LHAST.Root
   ? Mixin<Node, {
       id: string
       parent: null
       index: null
       previousSibling: null
       nextSibling: null
-      children: Array<NodeWithHelpers<AST.RootContent, AST.RootContent, AST.Root>>
+      children: Array<NodeWithHelpers<LHAST.RootContent, AST.RootContent, AST.Root>>
     }>
-: Node extends AST.Element
+: Node extends LHAST.Element
   ? Mixin<Node, {
       id: string
       parent: NullOrNodeWithHelpers<Parent>
@@ -242,9 +242,9 @@ type NodeWithHelpers<
       nextSibling: NullOrNodeWithHelpers<Sibling>
       children: Array<
         NodeWithHelpers<
-          AST.ElementContent
-        , AST.ElementContent
-        , AST.Element
+          LHAST.ElementContent
+        , LHAST.ElementContent
+        , LHAST.Element
         >
       >
     }>
@@ -256,12 +256,12 @@ type NodeWithHelpers<
     nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
-function addHelpers<T extends AST.Node>(node: T): NodeWithHelpers<T>
+function addHelpers<T extends LHAST.Node>(node: T): NodeWithHelpers<T>
 ```
 
 #### removeHelpers
 ```ts
 import { removeHelpers } from 'lhast/utils/remove-helpers.js'
 
-function removeHelpers<T extends AST.Node>(node: NodeWithHelpers<T>): T
+function removeHelpers<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
 ```

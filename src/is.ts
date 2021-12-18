@@ -1,19 +1,19 @@
-import * as AST from '@src/lhast.js'
-import * as AST_COMPACT from '@src/lhast-compact.js'
-import { validateAST, validateASTCompact  } from './validate.js'
+import * as LHAST from '@src/lhast.js'
+import * as LHASTCompact from '@src/lhast-compact.js'
+import { validateLHAST, validateLHASTCompact  } from './validate.js'
 
-export function isAST(data: unknown): data is AST.Root {
+export function isLHAST(data: unknown): data is LHAST.Root {
   try {
-    validateAST(data)
+    validateLHAST(data)
     return true
   } catch (e) {
     return false
   }
 }
 
-export function isASTCompact(data: unknown): data is AST_COMPACT.Root {
+export function isLHASTCompact(data: unknown): data is LHASTCompact.Root {
   try {
-    validateASTCompact(data)
+    validateLHASTCompact(data)
     return true
   } catch {
     return false

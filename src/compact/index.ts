@@ -1,7 +1,7 @@
 import * as LHAST from '@src/lhast.js'
-import * as LHAST_COMPACT from '@src/lhast-compact.js'
+import * as LHASTCompact from '@src/lhast-compact.js'
 import { transformRoot } from './transform.js'
 
-export function compact(root: LHAST.Root): LHAST_COMPACT.Root {
+export function compact(root: LHAST.Root): LHASTCompact.Root {
   return transformRoot(root)
 }

@@ -1,6 +1,6 @@
 import * as HAST from '@src/hast-2.4.js'
 import * as LHAST from '@src/lhast.js'
-import * as HAST_IS from '@hast-utils/is.js'
+import { isElement, isDoctype, isComment, isText } from '@hast-utils/is.js'
 import { CustomError } from '@blackglory/errors'
 import { isntUndefined } from '@blackglory/types'
 
@@ -18,10 +18,10 @@ export function transformRoot(root: HAST.Root): LHAST.Root {
 }
 
 function transformRootContent(node: HAST.RootContent): LHAST.RootContent | undefined {
-  if (HAST_IS.isElement(node)) return transformElement(node)
-  if (HAST_IS.isDoctype(node)) return transformDoctype(node)
-  if (HAST_IS.isComment(node)) return transformComment(node)
-  if (HAST_IS.isText(node)) return transformText(node)
+  if (isElement(node)) return transformElement(node)
+  if (isDoctype(node)) return transformDoctype(node)
+  if (isComment(node)) return transformComment(node)
+  if (isText(node)) return transformText(node)
   throw new UnknownNodeError(node)
 }
 
@@ -37,9 +37,9 @@ function transformElement(node: HAST.Element): LHAST.Element {
 }
 
 function transformElementContent(node: HAST.ElementContent): LHAST.ElementContent | undefined {
-  if (HAST_IS.isElement(node)) return transformElement(node)
-  if (HAST_IS.isComment(node)) return transformComment(node)
-  if (HAST_IS.isText(node)) return transformText(node)
+  if (isElement(node)) return transformElement(node)
+  if (isComment(node)) return transformComment(node)
+  if (isText(node)) return transformText(node)
   throw new UnknownNodeError(node)
 }
 

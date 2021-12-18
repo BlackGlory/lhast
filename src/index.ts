@@ -1,5 +1,5 @@
-export * as AST from './lhast.js'
-export * as AST_COMPACT from './lhast-compact.js'
+export * as LHAST from './lhast.js'
+export * as LHASTCompact from './lhast-compact.js'
 export * from './lhast-schema.js'
 export * from './lhast-compact-schema.js'
 export * from './parse.js'

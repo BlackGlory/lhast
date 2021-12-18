@@ -1,5 +1,5 @@
 import * as L from '@lhast-utils/builder.js'
-import { isAST, isASTCompact } from '@src/is.js'
+import { isLHAST, isLHASTCompact } from '@src/is.js'
 import { compact } from '@src/compact/index.js'
 
 test('isAST', () => {
@@ -19,7 +19,7 @@ test('isAST', () => {
     ])
   ])
 
-  const result = isAST(ast)
+  const result = isLHAST(ast)
 
   expect(result).toBe(true)
 })
@@ -43,7 +43,7 @@ test('isASTCompact', () => {
     ])
   )
 
-  const result = isASTCompact(ast)
+  const result = isLHASTCompact(ast)
 
   expect(result).toBe(true)
 })
