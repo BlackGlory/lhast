@@ -63,7 +63,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.5.0",
     "extra-tags": "^0.2.3",
-    "husky": "4",
+    "husky": "7",
     "jest": "^27.4.5",
     "jest-resolve": "^27.4.5",
     "jest-ts-webcompat-resolver": "^1.0.0",
