@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/BlackGlory/lhast/compare/v0.3.0...v0.3.1) (2021-12-28)
+
+
+### Features
+
+* add utils ([699516b](https://github.com/BlackGlory/lhast/commit/699516bb57474155d5cb13c06ab767f139644b45))
+
 ## [0.3.0](https://github.com/BlackGlory/lhast/compare/v0.2.1...v0.3.0) (2021-12-18)
 
 
