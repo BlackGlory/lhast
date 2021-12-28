@@ -207,7 +207,125 @@ function* findAll<T extends LHAST.Node>(
 ```ts
 import { traverseDescendantNodes } from 'lhast/utils/traverse-descendant-nodes.js'
 
-function traverseDescendantNodes(node: LHAST.Node): Iterable<AST.Node>
+function traverseDescendantNodes(node: LHAST.Node): Iterable<LHAST.Node>
+```
+
+#### concatContinuousText
+```ts
+import { concatContinuousText } from 'lhast/utils/concat-continuous-text.js'
+
+function concatContinuousText(root: LHAST.Root): LHAST.Root
+```
+
+#### getTextContentForSearch
+```ts
+import { getTextContentForSearch } from 'lhast/utils/get-text-content-for-search.js'
+
+function getTextContentForSearch(root: LHAST.Root): string
+```
+
+#### reduceWhitespaceCharacters
+```ts
+import { reduceWhitespaceCharacters } from 'lhast/utils/reduce-whitespace-characters.js'
+
+function reduceWhitespaceCharacters(root: LHAST.Root): LHAST.Root
+```
+
+#### removeElements
+```ts
+import { removeElements } from 'lhast/utils/remove-elements.js'
+
+function removeElements(
+  predicate: (element: LHAST.Element) => boolean
+): (root: LHAST.Root) => LHAST.Root
+function removeElements(
+  root: LHAST.Root
+, predicate: (element: LHAST.Element) => boolean
+): LHAST.Root
+```
+
+#### removeElementsByTags
+```ts
+import { removeElementsByTags } from 'lhast/utils/remove-elements-by-tags.js'
+
+function removeElementsByTags(tagNames: string[]): (root: LHAST.Root) => LHAST.Root
+function removeElementsByTags(root: LHAST.Root, tagNames: string[]): LHAST.Root
+```
+
+#### removeEmptyText
+```ts
+import { removeEmptyText } from 'lhast/utils/remove-empty-text.js'
+
+function removeEmptyText(root: LHAST.Root): LHAST.Root
+```
+
+#### removeProperties
+```ts
+import { removeProperties } from 'lhast/utils/remove-properties.js'
+
+function removeProperties(
+  predicate: (propertyName: string, element: LHAST.Element) => boolean
+): (root: LHAST.Root) => LHAST.Root
+function removeProperties(
+  root: LHAST.Root
+, predicate: (propertyName: string, element: LHAST.Element) => boolean
+): LHAST.Root
+```
+
+#### removePropertiesByNames
+```ts
+import { removePropertiesByNames } from 'lhast/utils/remove-properties-by-names.js'
+
+function removePropertiesByNames(root: LHAST.Root, propNames: string[]): LHAST.Root
+function removePropertiesByNames(propNames: string[]): (root: LHAST.Root) => LHAST.Root
+```
+
+#### removePropertiesByTags
+```ts
+import { removePropertiesByTags } from 'lhast/utils/remove-properties-by-tags.js'
+
+function removePropertiesByTags(
+  tagToPropNames: Record<string, string[]>
+): (root: LHAST.Root) => LHAST.Root
+function removePropertiesByTags(
+  root: LHAST.Root
+, tagToPropNames: Record<string, string[]>
+): LHAST.Root
+```
+
+#### removeEventHandlers
+```ts
+import { removeEventHandlers } from 'lhast/utils/remove-event-handlers.js'
+
+function removeEventHandlers(root: LHAST.Root): LHAST.Root
+```
+
+#### removeDataAttributes
+```ts
+import { removeDataAttributes } from 'lhast/utils/remove-data-attributes'
+
+function removeDataAttributes(root: LHAST.Root): LHAST.Root
+```
+
+#### unwrapElements
+```ts
+import { unwrapElements } from 'lhast/utils/unwrap-elements.js'
+
+function unwrapElements(
+  predicate: (element: LHAST.Element) => boolean
+): (root: LHAST.Root) => LHAST.Root
+function unwrapElements(
+  root: LHAST.Root
+, predicate: (element: LHAST.Element) => boolean
+): LHAST.Root
+```
+
+#### unwrapElementsByTags
+```ts
+import { unwrapElementsByTags } from 'lhast/utils/unwrap-elements-by-tags.js'
+
+function unwrapElementsByTags(tagNames: string[]): (root: LHAST.Root) => LHAST.Root 
+function unwrapElementsByTags(root: LHAST.Root, tagNames: string[]): LHAST.Root
 ```
 
 #### addHelpers
