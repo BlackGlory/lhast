@@ -229,7 +229,7 @@ test('img', () => {
   })
 })
 
-test('data', () => {
+test('data attributes', () => {
   const html = dedent`
   <div data-foo="bar">
   `
@@ -244,6 +244,27 @@ test('data', () => {
       , tagName: 'div'
       , properties: {
           dataFoo: 'bar'
+        }
+      }
+    ]
+  })
+})
+
+test('event handlers', () => {
+  const html = dedent`
+  <button onclick="alert('hello world')">
+  `
+
+  const result = parseFragment(html)
+
+  expect(result).toMatchObject({
+    type: 'root'
+  , children: [
+      {
+        type: 'element'
+      , tagName: 'button'
+      , properties: {
+          onClick: "alert('hello world')"
         }
       }
     ]
