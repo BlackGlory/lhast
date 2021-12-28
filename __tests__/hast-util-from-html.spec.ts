@@ -207,6 +207,49 @@ test('HTML entities', () => {
   })
 })
 
+test('img', () => {
+  const html = dedent`
+  <img src="image.png" alt="foo bar">
+  `
+
+  const result = parseFragment(html)
+
+  expect(result).toMatchObject({
+    type: 'root'
+  , children: [
+      {
+        type: 'element'
+      , tagName: 'img'
+      , properties: {
+          src: 'image.png'
+        , alt: 'foo bar'
+        }
+      }
+    ]
+  })
+})
+
+test('data', () => {
+  const html = dedent`
+  <div data-foo="bar">
+  `
+
+  const result = parseFragment(html)
+
+  expect(result).toMatchObject({
+    type: 'root'
+  , children: [
+      {
+        type: 'element'
+      , tagName: 'div'
+      , properties: {
+          dataFoo: 'bar'
+        }
+      }
+    ]
+  })
+})
+
 function parseDocument(html: string) {
   const ast = parse5.parse(html)
   return fromParse5(ast)
