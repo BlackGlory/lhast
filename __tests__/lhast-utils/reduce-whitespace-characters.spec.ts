@@ -13,9 +13,9 @@ describe('reduceWhitespaceCharacters', () => {
 
     expect(result).toStrictEqual(
       L.root([
-        L.text(' foo')
-      , L.text('bar ')
-      , L.text(' b a z ')
+        L.text('foo')
+      , L.text('bar')
+      , L.text('b a z')
       ])
     )
   })

@@ -14,7 +14,7 @@ export function reduceWhitespaceCharacters(root: LHAST.Root): LHAST.Root {
         isText(node) &&
         !isDescendantOfPre(node as NodeWithHelpers<LHAST.Text>)
       ) {
-        return text(node.value.replace(/\s+/g, ' '))
+        return text(node.value.trim().replace(/\s+/g, ' '))
       }
       return node
     }
