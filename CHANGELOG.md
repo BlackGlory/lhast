@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/BlackGlory/lhast/compare/v0.3.1...v0.3.2) (2021-12-29)
+
+
+### Features
+
+* improve getTextContentForSearch ([4d9663a](https://github.com/BlackGlory/lhast/commit/4d9663a8a06499ae86d6201f5c6d5a2782c6527f))
+
 ### [0.3.1](https://github.com/BlackGlory/lhast/compare/v0.3.0...v0.3.1) (2021-12-28)
 
 
