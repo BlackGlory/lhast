@@ -4,7 +4,22 @@ import { isText, isElement } from './is.js'
 import { isString } from '@blackglory/types'
 
 const tagToTextContentGenerator: Record<string, ((element: LHAST.Element) => Iterable<string>) | undefined> = {
-  * img(element) {
+  * applet(element) {
+    if (isString(element.properties.alt)) {
+      yield element.properties.alt
+    }
+  }
+, * area(element) {
+    if (isString(element.properties.alt)) {
+      yield element.properties.alt
+    }
+  }
+, * img(element) {
+    if (isString(element.properties.alt)) {
+      yield element.properties.alt
+    }
+  }
+, * input(element) {
     if (isString(element.properties.alt)) {
       yield element.properties.alt
     }
