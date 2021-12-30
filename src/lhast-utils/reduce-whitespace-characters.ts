@@ -2,8 +2,8 @@ import * as LHAST from '@src/lhast.js'
 import { text } from './builder.js'
 import { map } from './map.js'
 import { isElement, isText } from './is.js'
-import { addHelpers, NodeWithHelpers } from './add-helpers'
-import { removeHelpers } from './remove-helpers'
+import { addHelpers, NodeWithHelpers } from './add-helpers.js'
+import { removeHelpers } from './remove-helpers.js'
 
 export function reduceWhitespaceCharacters(root: LHAST.Root): LHAST.Root {
   const wrappedDocument = addHelpers(root)
