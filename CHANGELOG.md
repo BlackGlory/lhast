@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/BlackGlory/lhast/compare/v0.3.5...v0.4.0) (2021-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* `map`, `flatMap` now use shallow copy.
+Rename `addHelpers` to `addHelpersInPlace`.
+Rename `removeHelpers` to `removeHelpersInPlace`.
+
+* replace deep copy with shallow copy ([91bc941](https://github.com/BlackGlory/lhast/commit/91bc941f2862d3c76571dc883972b78945cfc8e3))
+
 ### [0.3.5](https://github.com/BlackGlory/lhast/compare/v0.3.4...v0.3.5) (2021-12-30)
 
 
