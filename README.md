@@ -302,9 +302,16 @@ function removeEventHandlers(root: LHAST.Root): LHAST.Root
 
 #### removeDataAttributes
 ```ts
-import { removeDataAttributes } from 'lhast/utils/remove-data-attributes'
+import { removeDataAttributes } from 'lhast/utils/remove-data-attributes.js'
 
 function removeDataAttributes(root: LHAST.Root): LHAST.Root
+```
+
+#### reverse
+```ts
+import { reverse } from 'lhast/utils/reverse.js'
+
+function reverse(root: LHAST.Root): LHAST.Root
 ```
 
 #### unwrapElements
