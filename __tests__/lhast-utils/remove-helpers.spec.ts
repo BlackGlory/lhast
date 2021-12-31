@@ -1,9 +1,9 @@
-import { addHelpers } from '@lhast-utils/add-helpers.js'
-import { removeHelpers } from '@lhast-utils/remove-helpers.js'
+import { addHelpersInPlace } from '@lhast-utils/add-helpers.js'
+import { removeHelpersInPlace } from '@lhast-utils/remove-helpers.js'
 import * as L from '@lhast-utils/builder.js'
 
 test('removeHelpers', () => {
-  const ast = addHelpers(
+  const ast = addHelpersInPlace(
     L.root([
       L.element('p', {}, [
         L.text('first')
@@ -17,7 +17,7 @@ test('removeHelpers', () => {
     ])
   )
 
-  const result = removeHelpers(ast)
+  const result = removeHelpersInPlace(ast)
 
   expect(result).toStrictEqual(
     L.root([

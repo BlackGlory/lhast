@@ -1,7 +1,6 @@
 import * as LHAST from '@src/lhast.js'
 import { Mixin } from 'hotypes'
 import { isParent } from './is.js'
-import cloneDeep from 'lodash.clonedeep'
 import { isntUndefined } from '@blackglory/types'
 import { nanoid } from 'nanoid'
 
@@ -47,10 +46,9 @@ export type NodeWithHelpers<
     nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
-export function addHelpers<T extends LHAST.Node>(node: T): NodeWithHelpers<T> {
-  const clone = cloneDeep(node)
-  addHelpersToTree(clone)
-  return clone as NodeWithHelpers<T>
+export function addHelpersInPlace<T extends LHAST.Node>(node: T): NodeWithHelpers<T> {
+  addHelpersToTree(node)
+  return node as NodeWithHelpers<T>
 }
 
 function addHelpersToTree<

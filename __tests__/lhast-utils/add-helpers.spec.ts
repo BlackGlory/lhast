@@ -1,4 +1,4 @@
-import { addHelpers } from '@lhast-utils/add-helpers.js'
+import { addHelpersInPlace } from '@lhast-utils/add-helpers.js'
 import * as L from '@lhast-utils/builder.js'
 
 test('addHelpers', () => {
@@ -14,7 +14,7 @@ test('addHelpers', () => {
     ])
   ])
 
-  const result = addHelpers(ast)
+  const result = addHelpersInPlace(ast)
 
   expect(result).toMatchObject({
     type: 'root'

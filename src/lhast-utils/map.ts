@@ -1,12 +1,11 @@
 import * as LHAST from '@src/lhast.js'
 import { isParent } from './is.js'
-import cloneDeep from 'lodash.clonedeep'
 
 export function map(
   node: LHAST.Node
 , fn: (node: LHAST.Node) => LHAST.Node
 ): LHAST.Node {
-  return map(cloneDeep(node), fn)
+  return map(node, fn)
 
   function map(
     node: LHAST.Node
@@ -15,7 +14,10 @@ export function map(
     const newNode = fn(node)
 
     if (isParent(newNode)) {
-      newNode.children = newNode.children.map(x => map(x, fn))
+      return {
+        ...newNode
+      , children: newNode.children.map(x => map(x, fn))
+      } as LHAST.Node & LHAST.Parent 
     }
 
     return newNode
