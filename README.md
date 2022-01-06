@@ -335,9 +335,9 @@ function unwrapElementsByTags(tagNames: string[]): (root: LHAST.Root) => LHAST.R
 function unwrapElementsByTags(root: LHAST.Root, tagNames: string[]): LHAST.Root
 ```
 
-#### addHelpersInPlace
+#### addHelpers
 ```ts
-import { addHelpersInPlace, NodeWithHelpers } from 'lhast/utils/add-helpers.js'
+import { addHelpers, addHelpersInPlace, NodeWithHelpers } from 'lhast/utils/add-helpers.js'
 
 type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null
@@ -381,12 +381,29 @@ type NodeWithHelpers<
     nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
 
+function addHelpers<T extends LHAST.Node>(node: T): NodeWithHelpers<T>
 function addHelpersInPlace<T extends LHAST.Node>(node: T): NodeWithHelpers<T>
 ```
 
-#### removeHelpersInPlace
+#### removeHelpers
 ```ts
-import { removeHelpersInPlace } from 'lhast/utils/remove-helpers.js'
+import { removeHelpers, removeHelpersInPlace } from 'lhast/utils/remove-helpers.js'
 
+function removeHelpers<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
 function removeHelpersInPlace<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
+```
+
+#### withHelpers
+
+```ts
+import { withHelpers, withHelpersInPlace } from 'lhast/utils/with-helpers.js'
+
+function withHelpers<T extends AST.Node, U>(
+  node: T
+, fn: (node: NodeWithHelpers<T>) => U
+): U
+function withHelpersInPlace<T extends AST.Node, U>(
+  node: T
+, fn: (node: NodeWithHelpers<T>) => U
+): U
 ```

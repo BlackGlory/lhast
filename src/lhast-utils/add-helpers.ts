@@ -3,6 +3,7 @@ import { Mixin } from 'hotypes'
 import { isParent } from './is.js'
 import { isntUndefined } from '@blackglory/types'
 import { nanoid } from 'nanoid'
+import cloneDeep from 'lodash.clonedeep'
 
 type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null
@@ -45,6 +46,10 @@ export type NodeWithHelpers<
     previousSibling: NullOrNodeWithHelpers<Sibling>
     nextSibling: NullOrNodeWithHelpers<Sibling>
   }>
+
+export function addHelpers<T extends LHAST.Node>(node: T): NodeWithHelpers<T> {
+  return addHelpersInPlace(cloneDeep(node))
+}
 
 export function addHelpersInPlace<T extends LHAST.Node>(node: T): NodeWithHelpers<T> {
   addHelpersToTree(node)

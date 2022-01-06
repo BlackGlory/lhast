@@ -1,6 +1,11 @@
 import * as LHAST from '@src/lhast.js'
 import { NodeWithHelpers } from './add-helpers.js'
 import { isParent } from './is.js'
+import cloneDeep from 'lodash.clonedeep'
+
+export function removeHelpers<T extends LHAST.Node>(node: NodeWithHelpers<T>): T {
+  return removeHelpersInPlace(cloneDeep(node))
+}
 
 export function removeHelpersInPlace<T extends LHAST.Node>(node: NodeWithHelpers<T>): T {
   removeHelpersForTree(node)
