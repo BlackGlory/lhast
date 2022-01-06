@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/BlackGlory/lhast/compare/v0.4.3...v0.4.4) (2022-01-06)
+
+
+### Features
+
+* add addHelpers, removeHelpers, withHelpers, withHelpersInPlace ([c2945cd](https://github.com/BlackGlory/lhast/commit/c2945cdfefc66f51c230531782b2dae929e3e80a))
+
 ### [0.4.3](https://github.com/BlackGlory/lhast/compare/v0.4.2...v0.4.3) (2022-01-06)
 
 ### [0.4.2](https://github.com/BlackGlory/lhast/compare/v0.4.1...v0.4.2) (2022-01-05)
