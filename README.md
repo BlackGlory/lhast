@@ -217,11 +217,11 @@ import { concatContinuousText } from 'lhast/utils/concat-continuous-text.js'
 function concatContinuousText(root: LHAST.Root): LHAST.Root
 ```
 
-#### getTextContentForSearch
+#### generateTextContentsForSearch
 ```ts
-import { getTextContentForSearch } from 'lhast/utils/get-text-content-for-search.js'
+import { getTextContentsForSearch } from 'lhast/utils/generate-text-contents-for-search.js'
 
-function getTextContentForSearch(root: LHAST.Root): string
+function getTextContentsForSearch(root: LHAST.Root): Iterable<string>
 ```
 
 #### reduceWhitespaceCharacters

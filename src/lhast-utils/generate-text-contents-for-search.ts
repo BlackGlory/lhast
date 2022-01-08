@@ -3,6 +3,7 @@ import { traverseDescendantNodes } from './traverse-descendant-nodes.js'
 import { isText, isElement } from './is.js'
 import { isString } from '@blackglory/types'
 
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
 const tagToTextContentGenerator: Record<string, ((element: LHAST.Element) => Iterable<string>) | undefined> = {
   * applet(element) {
     if (isString(element.properties.alt)) {
@@ -41,28 +42,19 @@ const tagToTextContentGenerator: Record<string, ((element: LHAST.Element) => Ite
   }
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-export function getTextContentForSearch(root: LHAST.Root): string {
-  const results: string[] = []
-
+export function* generateTextContentsForSearch(root: LHAST.Root): Iterable<string> {
   for (const node of traverseDescendantNodes(root)) {
     if (isText(node)) {
-      results.push(node.value)
+      yield node.value
     } else if (isElement(node)) {
       if (isString(node.properties.title)) {
-        results.push(node.properties.title)
+        yield node.properties.title
       }
 
       const generateText = tagToTextContentGenerator[node.tagName]
       if (generateText) {
-        for (const text of generateText(node)) {
-          results.push(text)
-        }
+        yield* generateText(node)
       }
     }
   }
-
-  return results
-    .join(' ')
-    .replace(/\s+/g, ' ')
 }
