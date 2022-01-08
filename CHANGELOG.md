@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/BlackGlory/lhast/compare/v0.5.0...v1.0.0) (2022-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove functions:
+- generateTextContentsForSearch
+- concatContinuousText
+- reduceWhitespaceCharacters
+- removeEmptyText
+- removeDataAttributes
+- removeElementsByTags
+- removeElements
+- removeEventHandlers
+- removePropertiesByNames
+- removePropertiesByTags
+- removeProperties
+- unwrapElementsByTags
+- unwrapElements
+
+* remove utils ([f05e07f](https://github.com/BlackGlory/lhast/commit/f05e07f8c4e7002d0fd91d17a1605949ca7ebbac))
+
 ## [0.5.0](https://github.com/BlackGlory/lhast/compare/v0.4.4...v0.5.0) (2022-01-08)
 
 
