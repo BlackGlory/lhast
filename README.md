@@ -129,12 +129,12 @@ function isLHASTCompact(data: unknown): data is LHASTCompact.Root
 ```
 
 ### LHASTSchema
-```
+```ts
 const LHASTSchema
 ```
 
 ### LHASTCompactSchema
-```
+```ts
 const LHASTCompactSchema
 ```
 
@@ -155,7 +155,7 @@ Each lhast node has a corresponding `is` function.
 
 #### flatMap
 ```ts
-import { flatMap } from 'lhast/utils/flatMap.js'
+import { flatMap } from 'lhast/utils/flat-map.js'
 
 function flatMap(
   node: LHAST.Node
