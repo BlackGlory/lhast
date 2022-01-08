@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/BlackGlory/lhast/compare/v0.4.4...v0.5.0) (2022-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Remove `getTextContentForSearch`
+
+### Features
+
+* add generateTextContentsForSearch ([56316a1](https://github.com/BlackGlory/lhast/commit/56316a1463eb6fe3eed6f26a5aa127d125bb3574))
+
 ### [0.4.4](https://github.com/BlackGlory/lhast/compare/v0.4.3...v0.4.4) (2022-01-06)
 
 
