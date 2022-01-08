@@ -3230,6 +3230,15 @@ iterable-operator@^0.14.4:
     "@blackglory/go" "^0.1.0"
     "@blackglory/types" "^0.5.1"
 
+iterable-operator@^0.14.5:
+  version "0.14.5"
+  resolved "https://registry.yarnpkg.com/iterable-operator/-/iterable-operator-0.14.5.tgz#5a91144a126e8579591d921a073218fd2ee2ce9d"
+  integrity sha512-jHqnu0snWjFJBrp63FHWU03o7u9/saQM2WK85fSpYCj92FNKw32BBq1IvuTUHXHubyb9uXTlNbbXcvPRFagPgA==
+  dependencies:
+    "@blackglory/errors" "^1.1.2"
+    "@blackglory/go" "^0.1.0"
+    "@blackglory/types" "^0.6.5"
+
 jest-changed-files@^27.4.2:
   version "27.4.2"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-27.4.2.tgz#da2547ea47c6e6a5f6ed336151bd2075736eb4a5"
