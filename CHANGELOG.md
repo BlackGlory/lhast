@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/BlackGlory/lhast/compare/v1.0.3...v1.0.4) (2022-03-23)
+
+
+### Bug Fixes
+
+* import ([5aaef52](https://github.com/BlackGlory/lhast/commit/5aaef52dcfae31906ebb73325de833bd8d6e15f0))
+
 ### [1.0.3](https://github.com/BlackGlory/lhast/compare/v1.0.2...v1.0.3) (2022-03-23)
 
 ### [1.0.2](https://github.com/BlackGlory/lhast/compare/v1.0.1...v1.0.2) (2022-03-19)
