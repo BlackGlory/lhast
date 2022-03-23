@@ -1,6 +1,6 @@
 import * as LHAST from '@src/lhast.js'
 import { isParent } from './is.js'
-import _flatMap from 'lodash/flatMap'
+import _flatMap from 'lodash/flatMap.js'
 
 export function flatMap(
   node: LHAST.Node
