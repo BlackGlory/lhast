@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/BlackGlory/lhast/compare/v1.0.7...v2.0.0) (2022-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* The exports field changed
+
+* improve exports ([a155f8f](https://github.com/BlackGlory/lhast/commit/a155f8ff3b1ad56d76eaf2651c0d367d4eadc673))
+
 ### [1.0.7](https://github.com/BlackGlory/lhast/compare/v1.0.6...v1.0.7) (2022-04-30)
 
 ### [1.0.6](https://github.com/BlackGlory/lhast/compare/v1.0.5...v1.0.6) (2022-04-30)
