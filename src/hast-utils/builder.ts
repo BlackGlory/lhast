@@ -1,4 +1,4 @@
-import * as HAST from '@src/hast-2.4'
+import * as HAST from '@src/hast-2.4.js'
 
 export function root(children: HAST.Root['children']): HAST.Root {
   return {

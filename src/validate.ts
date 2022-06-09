@@ -3,6 +3,7 @@ import { lazy } from 'extra-lazy'
 import { LHASTSchema } from './lhast-schema.js'
 import { LHASTCompactSchema } from './lhast-compact-schema.js'
 
+// @ts-ignore
 const getAjv = lazy(() => new Ajv({ strictTuples: false }))
 
 function validate<T>(schema: AnySchemaObject, data: T): void {
