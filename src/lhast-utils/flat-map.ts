@@ -1,6 +1,6 @@
 import * as LHAST from '@src/lhast.js'
 import { isParent } from './is.js'
-import _flatMap from 'lodash/flatMap.js'
+import { flatten, map, toArray } from 'iterable-operator'
 
 export function flatMap(
   node: LHAST.Node
@@ -18,7 +18,7 @@ export function flatMap(
       if (isParent(node)) {
         return {
           ...node
-        , children: _flatMap(node.children, x => flatMap(x, fn))
+        , children: toArray(flatten(map(node.children, x => flatMap(x, fn))))
         }
       }
 
