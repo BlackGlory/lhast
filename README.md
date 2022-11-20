@@ -141,21 +141,21 @@ const LHASTCompactSchema
 ### utils
 #### builder
 ```ts
-import {} from 'lhast/utils/builder.js'
+import * as Builder from 'lhast/utils/builder'
 ```
 
 Each lhast node has a corresponding builder.
 
 #### is
 ```ts
-import {} from 'lhast/utils/is.js'
+import * as Is from 'lhast/utils/is'
 ```
 
 Each lhast node has a corresponding `is` function.
 
 #### flatMap
 ```ts
-import { flatMap } from 'lhast/utils/flat-map.js'
+import { flatMap } from 'lhast/utils/flat-map'
 
 function flatMap(
   node: LHAST.Node
@@ -165,7 +165,7 @@ function flatMap(
 
 #### map
 ```ts
-import { map } from 'lhast/utils/map.js'
+import { map } from 'lhast/utils/map'
 
 function map(
   node: LHAST.Node
@@ -175,7 +175,7 @@ function map(
 
 #### filter
 ```ts
-import { filter } from 'lhast/utils/filter.js'
+import { filter } from 'lhast/utils/filter'
 
 function filter(
   node: LHAST.Node
@@ -185,7 +185,7 @@ function filter(
 
 #### find
 ```ts
-import { find } from 'lhast/utils/find.js'
+import { find } from 'lhast/utils/find'
 
 function find<T extends LHAST.Node>(
   node: LHAST.Node
@@ -195,7 +195,7 @@ function find<T extends LHAST.Node>(
 
 #### findAll
 ```ts
-import { findAll } from 'lhast/utils/find-all.js'
+import { findAll } from 'lhast/utils/find-all'
 
 function* findAll<T extends LHAST.Node>(
   node: LHAST.Node
@@ -205,21 +205,21 @@ function* findAll<T extends LHAST.Node>(
 
 #### traverseDescendantNodes
 ```ts
-import { traverseDescendantNodes } from 'lhast/utils/traverse-descendant-nodes.js'
+import { traverseDescendantNodes } from 'lhast/utils/traverse-descendant-nodes'
 
 function traverseDescendantNodes(node: LHAST.Node): Iterable<LHAST.Node>
 ```
 
 #### reverse
 ```ts
-import { reverse } from 'lhast/utils/reverse.js'
+import { reverse } from 'lhast/utils/reverse'
 
 function reverse(root: LHAST.Root): LHAST.Root
 ```
 
 #### addHelpers
 ```ts
-import { addHelpers, addHelpersInPlace, NodeWithHelpers } from 'lhast/utils/add-helpers.js'
+import { addHelpers, addHelpersInPlace, NodeWithHelpers } from 'lhast/utils/add-helpers'
 
 type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null
@@ -269,7 +269,7 @@ function addHelpersInPlace<T extends LHAST.Node>(node: T): NodeWithHelpers<T>
 
 #### removeHelpers
 ```ts
-import { removeHelpers, removeHelpersInPlace } from 'lhast/utils/remove-helpers.js'
+import { removeHelpers, removeHelpersInPlace } from 'lhast/utils/remove-helpers'
 
 function removeHelpers<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
 function removeHelpersInPlace<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
@@ -278,7 +278,7 @@ function removeHelpersInPlace<T extends LHAST.Node>(node: NodeWithHelpers<T>): T
 #### withHelpers
 
 ```ts
-import { withHelpers, withHelpersInPlace } from 'lhast/utils/with-helpers.js'
+import { withHelpers, withHelpersInPlace } from 'lhast/utils/with-helpers'
 
 function withHelpers<T extends AST.Node, U>(
   node: T
