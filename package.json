@@ -4,7 +4,8 @@
   "description": "Lightweight Hypertext Abstract Syntax Tree",
   "keywords": [],
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "type": "module",
   "main": "lib/es2018/index.js",
