@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/BlackGlory/lhast/compare/v2.0.4...v3.0.0) (2025-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Removed ES2015 support
+* Node.js v14 => v22
+
+### Features
+
+* **validate:** improve function signatures ([72dd3b2](https://github.com/BlackGlory/lhast/commit/72dd3b26fca23501f5f418dfd23594d6dd888495))
+
+
+### Bug Fixes
+
+* **package.json:** the `types` field ([8969ba1](https://github.com/BlackGlory/lhast/commit/8969ba15f0ec2b9467ee63ae767e52b5a23ba34d))
+
+
+### ci
+
+* fix ([4c47204](https://github.com/BlackGlory/lhast/commit/4c47204e61698a1423239cb8969fb5f81c4d8f58))
+
+
+* remove es2015 support ([605f7f2](https://github.com/BlackGlory/lhast/commit/605f7f2dfb83de97eaf977f403a7c19b09ba7663))
+
 ### [2.0.4](https://github.com/BlackGlory/lhast/compare/v2.0.3...v2.0.4) (2023-06-11)
 
 
