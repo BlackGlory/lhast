@@ -14,7 +14,7 @@
     "./utils/*": "./lib/lhast-utils/*.js"
   },
   "sideEffects": false,
-  "types": "lib/es2018/index.d.ts",
+  "types": "lib/index.d.ts",
   "engines": {
     "node": ">=22"
   },
