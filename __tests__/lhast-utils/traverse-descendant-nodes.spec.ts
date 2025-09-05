@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { traverseDescendantNodes } from '@lhast-utils/traverse-descendant-nodes.js'
 import { isText } from '@lhast-utils/is.js'
 import { root, element, text } from '@lhast-utils/builder.js'

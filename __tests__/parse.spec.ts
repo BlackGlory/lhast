@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { parseDocument, parseFragment } from '@src/parse.js'
 import { dedent } from 'extra-tags'
 import * as L from '@lhast-utils/builder.js'

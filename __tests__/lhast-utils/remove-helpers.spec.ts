@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { addHelpersInPlace } from '@lhast-utils/add-helpers.js'
 import { removeHelpersInPlace } from '@lhast-utils/remove-helpers.js'
 import * as L from '@lhast-utils/builder.js'

@@ -1,8 +1,7 @@
 import * as LHAST from '@src/lhast.js'
 import * as LHAST_COMPACT from '@src/lhast-compact.js'
 import * as IS from '@src/lhast-utils/is.js'
-import { CustomError } from '@blackglory/errors'
-import { isntUndefined, isEmptyObject } from '@blackglory/types'
+import { CustomError, isntUndefined, isEmptyObject } from '@blackglory/prelude'
 
 export class UnknownNodeError extends CustomError {
   constructor(node: LHAST.Node) {

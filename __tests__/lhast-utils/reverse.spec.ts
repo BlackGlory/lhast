@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { reverse } from '@lhast-utils/reverse.js'
 import { root, element, text } from '@lhast-utils/builder.js'
 

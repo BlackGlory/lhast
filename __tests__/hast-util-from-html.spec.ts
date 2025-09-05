@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest'
 import { dedent } from 'extra-tags'
 import { fromParse5 } from 'hast-util-from-parse5'
 import * as parse5 from 'parse5'

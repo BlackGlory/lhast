@@ -6,7 +6,7 @@ export function isLHAST(data: unknown): data is LHAST.Root {
   try {
     validateLHAST(data)
     return true
-  } catch (e) {
+  } catch {
     return false
   }
 }

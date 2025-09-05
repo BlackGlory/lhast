@@ -1,7 +1,7 @@
 import * as LHAST from '@src/lhast.js'
 import { Mixin } from 'hotypes'
 import { isParent } from './is.js'
-import { isntUndefined } from '@blackglory/types'
+import { isntUndefined } from '@blackglory/prelude'
 import { nanoid } from 'nanoid'
 import cloneDeep from 'lodash/cloneDeep.js'
 

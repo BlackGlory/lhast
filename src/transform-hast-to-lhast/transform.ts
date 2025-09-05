@@ -1,8 +1,7 @@
 import * as HAST from '@src/hast-2.4.js'
 import * as LHAST from '@src/lhast.js'
 import { isElement, isDoctype, isComment, isText } from '@hast-utils/is.js'
-import { CustomError } from '@blackglory/errors'
-import { isntUndefined } from '@blackglory/types'
+import { CustomError, isntUndefined } from '@blackglory/prelude'
 
 export class UnknownNodeError extends CustomError {
   constructor(node: HAST.Node) {

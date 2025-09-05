@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { compact } from '@src/compact/index.js'
 import * as L from '@lhast-utils/builder.js'
 

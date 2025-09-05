@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { flatMap } from '@lhast-utils/flat-map.js'
 import { isText, isElement } from '@lhast-utils/is.js'
 import { root, element, text } from '@lhast-utils/builder.js'

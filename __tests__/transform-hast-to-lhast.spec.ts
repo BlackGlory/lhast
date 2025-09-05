@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { transform } from '@src/transform-hast-to-lhast/index.js'
 import * as H from '@hast-utils/builder.js'
 import * as L from '@lhast-utils/builder.js'

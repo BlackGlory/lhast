@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { find } from '@lhast-utils/find.js'
 import { isText } from '@lhast-utils/is.js'
 import { root, element, text } from '@lhast-utils/builder.js'
