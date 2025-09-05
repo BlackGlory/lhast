@@ -110,12 +110,12 @@ function uncompact(root: LHAST.COMPACT.Root): LHAST.Root
 
 ### validateLHAST
 ```ts
-function validateLHAST(data: unknown): void
+function validateLHAST(data: unknown): asserts data is LHAST.Root
 ```
 
 ### validateLHASTCompact
 ```ts
-function validateLHASTCompact(data: unknown): void
+function validateLHASTCompact(data: unknown): asserts data is LHASTCompact.Root
 ```
 
 ### isAST

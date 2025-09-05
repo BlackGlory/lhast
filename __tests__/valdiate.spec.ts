@@ -2,7 +2,7 @@ import * as L from '@lhast-utils/builder.js'
 import { validateLHAST, validateLHASTCompact } from '@src/validate.js'
 import { compact } from '@src/compact/index.js'
 
-test('validateAST', () => {
+test('validateLHAST', () => {
   const ast = L.root([
     L.element('html', {}, [
       L.element('head', {}, [
@@ -22,7 +22,7 @@ test('validateAST', () => {
   validateLHAST(ast)
 })
 
-test('validateASTCompact', () => {
+test('validateLHASTCompact', () => {
   const ast = compact(
     L.root([
       L.element('html', {}, [
