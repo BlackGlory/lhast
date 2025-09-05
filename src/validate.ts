@@ -1,5 +1,5 @@
+import { lazy } from '@blackglory/prelude'
 import Ajv, { AnySchemaObject } from 'ajv/dist/2020.js'
-import { lazy } from 'extra-lazy'
 import * as LHAST from './lhast.js'
 import * as LHASTCompact from './lhast-compact.js'
 import { LHASTSchema } from './lhast-schema.js'
