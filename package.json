@@ -32,7 +32,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s prepare lint build test",
+      "pre-commit": "run-s prepare clean lint build test",
       "commit-msg": "commitlint --config commitlint.config.cjs --env HUSKY_GIT_PARAMS"
     }
   },
