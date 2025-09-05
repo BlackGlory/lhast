@@ -3,7 +3,7 @@ import { Mixin } from 'hotypes'
 import { isParent } from './is.js'
 import { isntUndefined } from '@blackglory/prelude'
 import { nanoid } from 'nanoid'
-import cloneDeep from 'lodash/cloneDeep.js'
+import cloneDeep from 'lodash-es/cloneDeep.js'
 
 type NullOrNodeWithHelpers<T extends LHAST.Node | null> =
   T extends null

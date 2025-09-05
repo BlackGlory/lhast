@@ -40,7 +40,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.35.0",
-    "@types/lodash": "^4.17.20",
+    "@types/lodash-es": "^4.17.12",
     "eslint": "^9.34.0",
     "extra-filesystem": "^0.5.2",
     "extra-tags": "^0.5.4",
@@ -63,7 +63,7 @@
     "hast-util-from-parse5": "^7.1.0",
     "hotypes": "^0.6.5",
     "iterable-operator": "^5.1.0",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "nanoid": "^5.1.5",
     "parse5": "^7.1.1"
   }
