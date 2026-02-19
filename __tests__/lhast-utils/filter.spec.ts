@@ -1,10 +1,10 @@
-import { describe, it, expect } from 'vitest'
-import { flatMap } from '@lhast-utils/flat-map.js'
+import { describe, test, expect } from 'vitest'
+import { filter } from '@lhast-utils/filter.js'
 import { isText, isElement } from '@lhast-utils/is.js'
 import { root, element, text } from '@lhast-utils/builder.js'
 
-describe('flatMap', () => {
-  it('is preorder', () => {
+describe('filter', () => {
+  test('preorder', () => {
     const ast = root([
       element('p', {}, [
         text('text')
@@ -12,15 +12,15 @@ describe('flatMap', () => {
     ])
 
     const result: string[] = []
-    flatMap(ast, node => {
+    filter(ast, node => {
       result.push(node.type)
-      return [node]
+      return true
     })
 
     expect(result).toEqual(['root', 'element', 'text'])
   })
 
-  it('is DFS', () => {
+  test('DFS', () => {
     const ast = root([
       element('p', {}, [
         text('deep')
@@ -29,33 +29,38 @@ describe('flatMap', () => {
     ])
 
     const result: string[] = []
-    flatMap(ast, node => {
+    filter(ast, node => {
       if (isText(node)) result.push(node.value)
-      return [node]
+      return true
     })
 
     expect(result).toEqual(['deep', 'shallow'])
   })
 
-  it('create a new tree', () => {
+  test('create a new tree', () => {
     const ast = root([
-      element('p', {}, [
-        text('foo')
-      ])
-    ])
-
-    const result = flatMap(ast, node => {
-      if (isElement(node)) return [element('div', {}, node.children)]
-      if (isText(node)) return [text('bar')]
-      return [node]
-    })
-
-    expect(result).toStrictEqual([
-      root([
-        element('div', {}, [
+      element('div', {}, [
+        element('span', {}, [
+          text('foo')
+        ])
+      , element('p', {}, [
           text('bar')
         ])
       ])
     ])
+
+    const result = filter(ast, node => {
+      if (isElement(node)) return ['div', 'p'].includes(node.tagName)
+      if (isText(node)) return node.value === 'foo'
+      return node
+    })
+
+    expect(result).toStrictEqual(
+      root([
+        element('div', {}, [
+          element('p', {}, [])
+        ])
+      ])
+    )
   })
 })

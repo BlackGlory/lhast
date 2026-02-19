@@ -5,12 +5,11 @@ import { root, element, text } from '@lhast-utils/builder.js'
 
 describe('map', () => {
   it('is preorder', () => {
-    const ast =
-      root([
-        element('p', {}, [
-          text('text')
-        ])
+    const ast = root([
+      element('p', {}, [
+        text('text')
       ])
+    ])
 
     const result: string[] = []
     map(ast, node => {
@@ -22,13 +21,12 @@ describe('map', () => {
   })
 
   it('is DFS', () => {
-    const ast =
-      root([
-        element('p', {}, [
-          text('deep')
-        ])
-      , text('shallow')
+    const ast = root([
+      element('p', {}, [
+        text('deep')
       ])
+    , text('shallow')
+    ])
 
     const result: string[] = []
     map(ast, node => {
@@ -40,23 +38,22 @@ describe('map', () => {
   })
 
   it('create a new tree', () => {
-    const ast =
-      root([
-        element('p', {}, [
-          text('inside emphasis')
-        ])
+    const ast = root([
+      element('p', {}, [
+        text('foo')
       ])
+    ])
 
     const result = map(ast, node => {
       if (isElement(node)) return element('div', {}, node.children)
-      if (isText(node)) return text('inside strong')
+      if (isText(node)) return text('bar')
       return node
     })
 
     expect(result).toStrictEqual(
       root([
         element('div', {}, [
-          text('inside strong')
+          text('bar')
         ])
       ])
     )
