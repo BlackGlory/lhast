@@ -50,9 +50,9 @@ describe('filter', () => {
     ])
 
     const result = filter(ast, node => {
-      if (isElement(node)) return ['div', 'p'].includes(node.tagName)
-      if (isText(node)) return node.value === 'foo'
-      return node
+      if (isElement(node) && node.tagName === 'span') return false
+      if (isText(node) && node.value === 'bar') return false
+      return true
     })
 
     expect(result).toStrictEqual(
